@@ -1,0 +1,14 @@
+## Start
+sudo mysql -u root -p or sudo mysql -u username\root -p
+
+## Create Database
+CREATE DATABASE NameOfDatabase;
+
+## Display Database
+SHOW DATABASES;
+--All  available database displayed
+
+## Use a particular database
+USE NameOfDatabase;
+
+ref:https://www.baeldung.com/hibernate-search
