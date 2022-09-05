@@ -1,6 +1,6 @@
 Assignment 3: 
-Mansi Gundre
-
+Name: Mansi Gundre
+Roll Number: 31231
 
 
 
@@ -101,6 +101,57 @@ mysql> SELECT * FROM EmployeeDeptView;
 
 
 
+10.
+CREATE VIEW EmpView  AS SELECT Emp_id, Dept_id, fname, lname FROM Employee;
+Query OK, 0 rows affected (0.04 sec)
+
+SELECT * FROM EmpView;
++--------+---------+-----------+-----------+
+| Emp_id | Dept_id | fname     | lname     |
++--------+---------+-----------+-----------+
+|      1 |       1 | Mansi     | Gundre    |
+|      2 |       2 | Piyusha   | Khandare  |
+|      8 |       3 | Sanskruti | Pawar     |
+|      9 |       4 | Dhirendra | Gundre    |
+|      6 |       5 | Rohit     | Kodam     |
+|      3 |       6 | Arunima   | Garg      |
+|      4 |       7 | Rohan     | Patil     |
+|      7 |       8 | Sharvi    | Endait    |
+|     10 |       9 | Harsh     | Deshpande |
+|      5 |      10 | Vaishnavi | Katkar    |
++--------+---------+-----------+-----------+
+10 rows in set (0.00 sec)
+
+
+
+
+
+
+10.1
+
+UPDATE EmpView 
+    -> SET
+    -> fname="Virat"
+    -> WHERE
+    -> Dept_id=9;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM EmpView;
++--------+---------+-----------+-----------+
+| Emp_id | Dept_id | fname     | lname     |
++--------+---------+-----------+-----------+
+|      1 |       1 | Mansi     | Gundre    |
+|      2 |       2 | Piyusha   | Khandare  |
+|      8 |       3 | Sanskruti | Pawar     |
+|      9 |       4 | Dhirendra | Gundre    |
+|      6 |       5 | Rohit     | Kodam     |
+|      3 |       6 | Arunima   | Garg      |
+|      4 |       7 | Rohan     | Patil     |
+|      7 |       8 | Sharvi    | Endait    |
+|     10 |       9 | Virat     | Deshpande |
+|      5 |      10 | Vaishnavi | Katkar    |
++--------+---------+-----------+-----------+
 
 
 
@@ -108,9 +159,31 @@ mysql> SELECT * FROM EmployeeDeptView;
 
 
 
+10.2
+INSERT EmpView
+    -> SET
+    -> fname="Shaurya";
+Query OK, 1 row affected, 1 warning (0.02 sec)
 
+mysql> SELECT * FROM EmpView;
++--------+---------+-----------+-----------+
+| Emp_id | Dept_id | fname     | lname     |
++--------+---------+-----------+-----------+
+|      0 |       0 | Shaurya   | NULL      |
+|      1 |       1 | Mansi     | Gundre    |
+|      2 |       2 | Piyusha   | Khandare  |
+|      8 |       3 | Sanskruti | Pawar     |
+|      9 |       4 | Dhirendra | Gundre    |
+|      6 |       5 | Rohit     | Kodam     |
+|      3 |       6 | Arunima   | Garg      |
+|      4 |       7 | Rohan     | Patil     |
+|      7 |       8 | Sharvi    | Endait    |
+|     10 |       9 | Virat     | Deshpande |
+|      5 |      10 | Vaishnavi | Katkar    |
++--------+---------+-----------+-----------+
 
-
-
+10.3
+DROP VIEW EmpView;
+Query OK, 0 rows affected (0.00 sec)
 
 
