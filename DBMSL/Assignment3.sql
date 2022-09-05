@@ -183,6 +183,9 @@ mysql> SELECT * FROM EmpView;
 +--------+---------+-----------+-----------+
 
 10.3
+delete from Fname where Dept_id=0;
+
+10.4
 DROP VIEW EmpView;
 Query OK, 0 rows affected (0.00 sec)
 
