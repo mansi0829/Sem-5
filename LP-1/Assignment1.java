@@ -88,7 +88,7 @@
 
 // new code my
 
-package a131;
+// package a131;
 
 import java.util.concurrent.Semaphore;
 
@@ -179,7 +179,7 @@ class Consumers implements Runnable{
 	}
 }
 
-class a1 {
+class Assignment1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
