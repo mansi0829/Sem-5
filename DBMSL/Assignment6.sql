@@ -30,6 +30,8 @@ END;
 
 \d ;
 
+
+
 1.
 CREATE TABLE O_EmpId(EmpId INT PRIMARY KEY, fname VARCHAR(40), lname VARCHAR(40), company VARCHAR(40), location VARCHAR(40));
 Query OK, 0 rows affected (0.04 sec)
@@ -77,7 +79,31 @@ mysql> CREATE PROCEDURE mergeTables()
 Query OK, 0 rows affected (0.00 sec)
 
 mysql> \d ;
+drop procedure addnewdata;
+delimiter $$
 
+create procedure addnewdata(IN empid int)
+BEGIN
+        DECLARE EmpId1 int;
+        DECLARE exit_loop BOOLEAN;
+        
+        DECLARE C1 CURSOR FOR SELECT EmpId FROM O_EmpId where EmpId>empid;
+        DECLARE CONTINUE HANDLER FOR NOT FOUND SET exit_loop = TRUE;
+        
+        OPEN C1;
+        emp_loop: LOOP
+        FETCH C1 INTO EmpId1;
+                IF NOT EXISTS (SELECT * FROM N_EmpId WHERE EmpId=EmpId1) THEN
+                        INSERT INTO N_EmpId SELECT * FROM O_EmpId WHERE EmpId=EmpId1;
+                END IF;
+                IF exit_loop THEN 
+                        CLOSE C1;
+                        LEAVE emp_loop;
+                END IF;
+        END LOOP emp_loop;
+END
+$$
+delimiter ;
 
 
 
