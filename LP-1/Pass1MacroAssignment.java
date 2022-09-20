@@ -1,3 +1,5 @@
+package a4;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -5,7 +7,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 
-public class MacroP1 {
+public class a4 {
 
 	public static void main(String[] args) throws IOException{
 		BufferedReader br=new BufferedReader(new FileReader("macro_input.asm"));
@@ -21,7 +23,6 @@ public class MacroP1 {
 		int mdtp=1,kpdtp=0,paramNo=1,pp=0,kp=0,flag=0;
 		while((line=br.readLine())!=null)
 		{
-			
 			String parts[]=line.split("\\s+");
 			if(parts[0].equalsIgnoreCase("MACRO"))
 			{
@@ -32,12 +33,13 @@ public class MacroP1 {
 				if(parts.length<=1)
 				{
 					mnt.write(parts[0]+"\t"+pp+"\t"+kp+"\t"+mdtp+"\t"+(kp==0?kpdtp:(kpdtp+1))+"\n");
+					System.out.println(parts[0]+"\t"+pp+"\t"+kp+"\t"+mdtp+"\t"+(kp==0?kpdtp:(kpdtp+1))+"\n");
 					continue;
 				}
-				for(int i=1;i<parts.length;i++) //processing of parameters
+				for(int i=1;i<parts.length;i++) 
 				{
 					parts[i]=parts[i].replaceAll("[&,]", "");
-					//System.out.println(parts[i]);
+					System.out.println(parts[i]);
 					if(parts[i].contains("="))
 					{
 						++kp;
@@ -46,10 +48,12 @@ public class MacroP1 {
 						if(keywordParam.length==2)
 						{
 							kpdt.write(keywordParam[0]+"\t"+keywordParam[1]+"\n");
+							System.out.println(keywordParam[0] + "\t"+ keywordParam[1]+ "\n");
 						}
 						else
 						{
 							kpdt.write(keywordParam[0]+"\t-\n");
+							System.out.println(keywordParam[0]+"\t-\n");
 						}
 					}
 					else
@@ -60,9 +64,7 @@ public class MacroP1 {
 				}
 				mnt.write(parts[0]+"\t"+pp+"\t"+kp+"\t"+mdtp+"\t"+(kp==0?kpdtp:(kpdtp+1))+"\n");
 				kpdtp=kpdtp+kp;
-				//System.out.println("KP="+kp);
-				
-				
+				System.out.println("KP="+kp +"\n");
 			}
 			else if(parts[0].equalsIgnoreCase("MEND"))
 			{
@@ -71,6 +73,7 @@ public class MacroP1 {
 				mdtp++;
 				paramNo=1;
 				pnt.write(Macroname+":\t");
+				System.out.println("Macroname : " + Macroname+"\t");
 				Iterator<String> itr=pntab.keySet().iterator();
 				while(itr.hasNext())
 				{
@@ -91,6 +94,7 @@ public class MacroP1 {
 					else
 					{
 						mdt.write(parts[i]+"\t");
+//						System.out.println(parts[i]+"\t");
 					}
 				}
 				mdt.write("\n");
@@ -107,7 +111,7 @@ public class MacroP1 {
 		ir.close();
 		pnt.close();
 		kpdt.close();
-		System.out.println("MAcro PAss1 Processing done. :)");
+		System.out.println("Macro Pass1 Processing done. :)");
 	}
 
 }
