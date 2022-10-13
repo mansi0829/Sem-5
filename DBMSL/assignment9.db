@@ -1,0 +1,166 @@
+student@student-OptiPlex-3020:~$ ./mongo 10.10.12.108/t31231db -u t31231 
+bash: ./mongo: No such file or directory
+student@student-OptiPlex-3020:~$ ./mongo 10.10.12.108/t31231db -u t31231 -p
+bash: ./mongo: No such file or directory
+student@student-OptiPlex-3020:~$ cd mongodb-linux-x86_64-2.6.3/bin
+student@student-OptiPlex-3020:~/mongodb-linux-x86_64-2.6.3/bin$ 
+student@student-OptiPlex-3020:~/mongodb-linux-x86_64-2.6.3/bin$ ./mongo 10.10.12.108/t31231db -u t31231 -p
+MongoDB shell version: 2.6.3
+Enter password: 
+connecting to: 10.10.12.108/t31231db
+> help
+	db.help()                    help on db methods
+	db.mycoll.help()             help on collection methods
+	sh.help()                    sharding helpers
+	rs.help()                    replica set helpers
+	help admin                   administrative help
+	help connect                 connecting to a db help
+	help keys                    key shortcuts
+	help misc                    misc things to know
+	help mr                      mapreduce
+
+	show dbs                     show database names
+	show collections             show collections in current database
+	show users                   show users in current database
+	show profile                 show most recent system.profile entries with time >= 1ms
+	show logs                    show the accessible logger names
+	show log [name]              prints out the last segment of log in memory, 'global' is default
+	use <db_name>                set current database
+	db.foo.find()                list objects in collection foo
+	db.foo.find( { a : 1 } )     list objects in foo where a == 1
+	it                           result of the last line evaluated; use to further iterate
+	DBQuery.shellBatchSize = x   set default number of items to display on shell
+	exit                         quit the mongo shell
+> show collections  
+> show collections;
+> db.createCollection("Student")
+{ "ok" : 1 }
+> show collections;
+Student
+system.indexes
+> use Student
+switched to db Student
+> db
+Student
+> db help
+2022-10-13T09:12:21.826+0530 SyntaxError: Unexpected identifier
+> db.Student.drop();
+false
+> db.Student.drop()
+false
+> show collections;
+> show collections
+> db.createCollection("Student")
+{ "ok" : 1 }
+> db.Student.insert({"name":"Mansi Gundre", "College": "PICT", })
+WriteResult({ "nInserted" : 1 })
+> 
+> show collections
+Student
+system.indexes
+> show Student
+2022-10-13T09:31:13.829+0530 don't know how to show [Student] at src/mongo/shell/utils.js:729
+> show db.Student
+2022-10-13T09:31:29.276+0530 don't know how to show [db.Student] at src/mongo/shell/utils.js:729
+> show collections
+Student
+system.indexes
+> use Student
+switched to db Student
+> show Student
+2022-10-13T09:34:03.785+0530 don't know how to show [Student] at src/mongo/shell/utils.js:729
+> show db.Student
+2022-10-13T09:34:06.913+0530 don't know how to show [db.Student] at src/mongo/shell/utils.js:729
+> db.Student.find()
+{ "_id" : ObjectId("63478bc93d17228ccc10a8a1"), "name" : "Mansi Gundre", "College" : "PICT" }
+> db.Student.insert({"name":"Arunima Garg", "College": "PICT", "Marks": "500","Major":"Computer Science"})
+WriteResult({ "nInserted" : 1 })
+> db.Student.find()
+{ "_id" : ObjectId("63478bc93d17228ccc10a8a1"), "name" : "Mansi Gundre", "College" : "PICT" }
+{ "_id" : ObjectId("6347903f3d17228ccc10a8a2"), "name" : "Arunima Garg", "College" : "PICT", "Marks" : "500", "Major" : "Computer Science" }
+> db.Student.update({"name":"Arunima Garg"}, {$set:{"name":"New Arunima Garg"}})
+
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.Student.find()
+{ "_id" : ObjectId("63478bc93d17228ccc10a8a1"), "name" : "Mansi Gundre", "College" : "PICT" }
+{ "_id" : ObjectId("6347903f3d17228ccc10a8a2"), "name" : "New Arunima Garg", "College" : "PICT", "Marks" : "500", "Major" : "Computer Science" }
+> db.Student.insert({"name":"Piyusha Khandare", "College": "PICT", "Marks": "1000","Major":"Tomper"})
+WriteResult({ "nInserted" : 1 })
+> db.Student.insert({"name":"Rohit Kodam", "College": "BITS", "Marks": "100","Major":"Mathematics"})
+WriteResult({ "nInserted" : 1 })
+> db.Student.remove({"name":"Rohit Kodam", "College": "BITS", "Marks": "100","Major":"Mathematics"})
+WriteResult({ "nRemoved" : 1 })
+> db.Student.find()
+{ "_id" : ObjectId("63478bc93d17228ccc10a8a1"), "name" : "Mansi Gundre", "College" : "PICT" }
+{ "_id" : ObjectId("6347903f3d17228ccc10a8a2"), "name" : "New Arunima Garg", "College" : "PICT", "Marks" : "500", "Major" : "Computer Science" }
+{ "_id" : ObjectId("6347914a3d17228ccc10a8a3"), "name" : "Piyusha Khandare", "College" : "PICT", "Marks" : "1000", "Major" : "Tomper" }
+> db.Student.findall()
+2022-10-13T10:07:07.305+0530 TypeError: Property 'findall' of object Student.Student is not a function
+> db.Student.findAll()
+2022-10-13T10:07:12.409+0530 TypeError: Property 'findAll' of object Student.Student is not a function
+> db.findAll()
+2022-10-13T10:07:23.769+0530 TypeError: Property 'findAll' of object Student is not a function
+> 
+> db.Student.totalSize()
+16368
+> db.Student.watch()
+2022-10-13T10:14:58.098+0530 TypeError: Property 'watch' of object Student.Student is not a function
+> db.Student.find().pretty()
+{
+	"_id" : ObjectId("63478bc93d17228ccc10a8a1"),
+	"name" : "Mansi Gundre",
+	"College" : "PICT"
+}
+{
+	"_id" : ObjectId("6347903f3d17228ccc10a8a2"),
+	"name" : "New Arunima Garg",
+	"College" : "PICT",
+	"Marks" : "500",
+	"Major" : "Computer Science"
+}
+{
+	"_id" : ObjectId("6347914a3d17228ccc10a8a3"),
+	"name" : "Piyusha Khandare",
+	"College" : "PICT",
+	"Marks" : "1000",
+	"Major" : "Tomper"
+}
+> db.Student.validate()
+{
+	"ns" : "Student.Student",
+	"firstExtent" : "0:4000 ns:Student.Student",
+	"lastExtent" : "0:4000 ns:Student.Student",
+	"extentCount" : 1,
+	"datasize" : 336,
+	"nrecords" : 3,
+	"lastExtentSize" : 8192,
+	"padding" : 1,
+	"firstExtentDetails" : {
+		"loc" : "0:4000",
+		"xnext" : "null",
+		"xprev" : "null",
+		"nsdiag" : "Student.Student",
+		"size" : 8192,
+		"firstRecord" : "0:40b0",
+		"lastRecord" : "0:41b0"
+	},
+	"deletedCount" : 2,
+	"deletedSize" : 7632,
+	"nIndexes" : 1,
+	"keysPerIndex" : {
+		"Student.Student.$_id_" : 3
+	},
+	"valid" : true,
+	"errors" : [ ],
+	"warning" : "Some checks omitted for speed. use {full:true} option to do more thorough scan.",
+	"ok" : 1
+}
+> db.Student.isCapped()
+false
+> db.Student.explain()
+2022-10-13T10:17:23.762+0530 TypeError: Property 'explain' of object Student.Student is not a function
+> db.Student.count()
+3
+> db.Student.distinct()
+[ ]
+> 
