@@ -1,0 +1,281 @@
+student@student-OptiPlex-3020:~/mongodb-linux-x86_64-2.6.3$ cd bin
+student@student-OptiPlex-3020:~/mongodb-linux-x86_64-2.6.3/bin$ ./mongo 10.10.12.108/t31231db -u t31231 -p
+MongoDB shell version: 2.6.3
+Enter password: 
+connecting to: 10.10.12.108/t31231db
+> show db;
+2022-10-17T08:58:07.780+0530 don't know how to show [db] at src/mongo/shell/utils.js:729
+> show collection;
+2022-10-17T08:58:15.003+0530 don't know how to show [collection] at src/mongo/shell/utils.js:729
+> show collections;
+Student
+system.indexes
+> db.createCollection(EmployeeFeedbackForum)
+2022-10-17T09:13:20.835+0530 ReferenceError: EmployeeFeedbackForum is not defined
+> db.createCollection(EmployeeFeedbackForum);
+2022-10-17T09:14:41.084+0530 ReferenceError: EmployeeFeedbackForum is not defined
+> use t31231db;
+switched to db t31231db
+;               
+db.createCollection
+)^C2022-10-17T09:19:31.214+0530 warning: Failed to connect to 10.10.12.108:27017, reason: errno:101 Network is unreachable
+student@student-OptiPlex-3020:~/mongodb-linux-x86_64-2.6.3/bin$ ./mongo 10.10.12.108/t31231db -u t31231 -p
+MongoDB shell version: 2.6.3
+Enter password: 
+connecting to: 10.10.12.108/t31231db
+2022-10-17T09:19:39.144+0530 warning: Failed to connect to 10.10.12.108:27017, reason: errno:101 Network is unreachable
+2022-10-17T09:19:39.145+0530 Error: couldn't connect to server 10.10.12.108:27017 (10.10.12.108), connection attempt failed at src/mongo/shell/mongo.js:148
+exception: connect failed
+student@student-OptiPlex-3020:~/mongodb-linux-x86_64-2.6.3/bin$ ./mongo 10.10.12.108/t31231db -u t31231 -p
+MongoDB shell version: 2.6.3
+Enter password: 
+connecting to: 10.10.12.108/t31231db
+2022-10-17T09:19:46.584+0530 warning: Failed to connect to 10.10.12.108:27017, reason: errno:101 Network is unreachable
+2022-10-17T09:19:46.585+0530 Error: couldn't connect to server 10.10.12.108:27017 (10.10.12.108), connection attempt failed at src/mongo/shell/mongo.js:148
+exception: connect failed
+student@student-OptiPlex-3020:~/mongodb-linux-x86_64-2.6.3/bin$ ./mongo 10.10.12.108/t31231db -u t31231 -p
+MongoDB shell version: 2.6.3
+Enter password: 
+connecting to: 10.10.12.108/t31231db
+2022-10-17T09:20:35.457+0530 warning: Failed to connect to 10.10.12.108:27017, reason: errno:101 Network is unreachable
+2022-10-17T09:20:35.457+0530 Error: couldn't connect to server 10.10.12.108:27017 (10.10.12.108), connection attempt failed at src/mongo/shell/mongo.js:148
+exception: connect failed
+student@student-OptiPlex-3020:~/mongodb-linux-x86_64-2.6.3/bin$ ./mongo 10.10.12.108/t31231db -u t31231 -p
+MongoDB shell version: 2.6.3
+Enter password: 
+connecting to: 10.10.12.108/t31231db
+> ^C
+bye
+student@student-OptiPlex-3020:~/mongodb-linux-x86_64-2.6.3/bin$ ./mongo 10.10.12.108/t31155db -u t31155 -p
+MongoDB shell version: 2.6.3
+Enter password: 
+connecting to: 10.10.12.108/t31155db
+2022-10-17T09:23:28.027+0530 Error: 18 { ok: 0.0, errmsg: "auth failed", code: 18 } at src/mongo/shell/db.js:1210
+exception: login failed
+student@student-OptiPlex-3020:~/mongodb-linux-x86_64-2.6.3/bin$ ./mongo 10.10.12.108/t31155db -u t31155 -p
+MongoDB shell version: 2.6.3
+Enter password: 
+connecting to: 10.10.12.108/t31155db
+2022-10-17T09:23:36.939+0530 Error: 18 { ok: 0.0, errmsg: "auth failed", code: 18 } at src/mongo/shell/db.js:1210
+exception: login failed
+student@student-OptiPlex-3020:~/mongodb-linux-x86_64-2.6.3/bin$ ./mongo 10.10.12.108/t31231db -u t31231 -p
+MongoDB shell version: 2.6.3
+Enter password: 
+connecting to: 10.10.12.108/t31231db
+> db.createCollection(EmployeeFeedbackForum)
+2022-10-17T09:24:31.359+0530 ReferenceError: EmployeeFeedbackForum is not defined
+> db.createCollection(EmployeeFeedback)
+2022-10-17T09:24:36.868+0530 ReferenceError: EmployeeFeedback is not defined
+> db.createCollection(Feedback)
+2022-10-17T09:24:47.004+0530 ReferenceError: Feedback is not defined
+> show collections;
+Student
+system.indexes
+> db.createCollection("EmployeeFeedbackForum")
+{ "ok" : 1 }
+> use 
+bad use parameter
+> cd EmployeeFeedbackForum
+2022-10-17T09:27:29.036+0530 SyntaxError: Unexpected identifier
+> use EmployeeFeedbackForum
+switched to db EmployeeFeedbackForum
+> db.student.insert({name:"Vaibhav",roll_no:2 ,branch:"Computer", feedback: "Teacher Teaching staff is good" });
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({name:"mansi",roll_no:4 ,branch:"Entc", feedback: "Exposure to Hardware related solution" });
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({name:"Dhiraj",roll_no:3 ,branch:"Entc", feedback: "Hardware is quite difficult to deal with" });
+WriteResult({ "nInserted" : 1 })
+> db.student.insert({name:"Rohit",roll_no:5 ,branch:"Electrical", feedback: "perfect balance of software and hardware" });
+WriteResult({ "nInserted" : 1 })
+> db.EmployeeFeedbackForum.find()
+> db.EmployeeFeedbackForum.find();
+> db.EmployeeFeedbackForum.findall();
+2022-10-17T09:32:02.861+0530 TypeError: Property 'findall' of object EmployeeFeedbackForum.EmployeeFeedbackForum is not a function
+> db.EmployeeFeedbackForum.findAll();
+2022-10-17T09:32:06.645+0530 TypeError: Property 'findAll' of object EmployeeFeedbackForum.EmployeeFeedbackForum is not a function
+> show collections
+student
+system.indexes
+> db.EmployeeFeedbackForum.insert({name:"Vaibhav",roll_no:2 ,branch:"Computer", feedback: "Teacher Teaching staff is good" });
+WriteResult({ "nInserted" : 1 })
+> db.EmployeeFeedbackForum.insert({name:"Mansi",roll_no:4 ,branch:"Entc", feedback: "Exposure to Hardware related solution" });
+WriteResult({ "nInserted" : 1 })
+> db.EmployeeFeedbackForum.insert({name:"Dhiraj",roll_no:3 ,branch:"Entc", feedback: "Hardware is quite difficult to deal with" });
+WriteResult({ "nInserted" : 1 })
+> db.EmployeeFeedbackForum.insert({name:"Dhiraj",roll_no:3 ,branch:"Entc", feedback: "Hardware is quite difficult to deal with" })db.EmployeeFeedbackForum.insert({name:"Mansi",roll_no:4 ,branch:db.EmployeeFeedbackForum.insert({name:"Vaibhav",roll_no:2 ,brancdb.student.insert({name:"Rohit",roll_no:5 ,branch:"Electrical", db.student.insert({name:"Rohit",roll_no:5 ,branch:"Electrical", db.student.insert({name:"Rohit",roll_no:5 ,branch:"Electrical", db.student.insert({name:"Dhiraj",roll_no:3 ,branch:"Entc", feedbdb.student.insert({name:"mansi",roll_no:4 ,branch:"Entc", feedbadb.student.insert({name:"mansi",roll_no:4 ,branch:"Entc", feedbadb.student.insert({name:"mansi",roll_no:4 ,branch:"Entc", feedback: "Exposure to Hardware related solution" });              ^C
+bye
+student@student-OptiPlex-3020:~/mongodb-linux-x86_64-2.6.3/bin$ ./mongo 10.10.12.108/t31231db -u t31231 -p
+MongoDB shell version: 2.6.3
+Enter password: 
+connecting to: 10.10.12.108/t31231db
+> db.EmployeeFeedbackForum.insert({name:"Rohit",roll_no:5 ,branch:"Electrical", feedback: "perfect balance of software and hardware" });
+WriteResult({ "nInserted" : 1 })
+> db.EmployeeFeedbackForum.findAll();
+2022-10-17T09:35:09.248+0530 TypeError: Property 'findAll' of object t31231db.EmployeeFeedbackForum is not a function
+> db.EmployeeFeedbackForum.find();
+{ "_id" : ObjectId("634cd4702b52f6713be18563"), "name" : "Rohit", "roll_no" : 5, "branch" : "Electrical", "feedback" : "perfect balance of software and hardware" }
+> db.EmployeeFeedbackForum.find().pretty;
+function (){
+    this._prettyShell = true;
+    return this;
+}
+> db.EmployeeFeedbackForum.find().pretty();
+{
+	"_id" : ObjectId("634cd4702b52f6713be18563"),
+	"name" : "Rohit",
+	"roll_no" : 5,
+	"branch" : "Electrical",
+	"feedback" : "perfect balance of software and hardware"
+}
+> db.EmployeeFeedbackForum.insert({name:"Mansi",roll_no:4 ,branch:"Entc", feedback: "Exposure to Hardware related solution" });
+WriteResult({ "nInserted" : 1 })
+> db.EmployeeFeedbackForum.insert({name:"Dhiraj",roll_no:3 ,branch:"Entc", feedback: "Hardware is quite difficult to deal with" });
+WriteResult({ "nInserted" : 1 })
+> db.EmployeeFeedbackForum.insert({name:"Vaibhav",roll_no:2 ,branch:"Computer", feedback: "Teacher Teaching staff is good" });
+WriteResult({ "nInserted" : 1 })
+> db.EmployeeFeedbackForum.find().pretty();
+{
+	"_id" : ObjectId("634cd4702b52f6713be18563"),
+	"name" : "Rohit",
+	"roll_no" : 5,
+	"branch" : "Electrical",
+	"feedback" : "perfect balance of software and hardware"
+}
+{
+	"_id" : ObjectId("634cd4a12b52f6713be18564"),
+	"name" : "Mansi",
+	"roll_no" : 4,
+	"branch" : "Entc",
+	"feedback" : "Exposure to Hardware related solution"
+}
+{
+	"_id" : ObjectId("634cd4a62b52f6713be18565"),
+	"name" : "Dhiraj",
+	"roll_no" : 3,
+	"branch" : "Entc",
+	"feedback" : "Hardware is quite difficult to deal with"
+}
+{
+	"_id" : ObjectId("634cd4ac2b52f6713be18566"),
+	"name" : "Vaibhav",
+	"roll_no" : 2,
+	"branch" : "Computer",
+	"feedback" : "Teacher Teaching staff is good"
+}
+> db.EmployeeFeedbackForum.aggregate(
+... ;
+... )
+2022-10-17T09:50:14.816+0530 SyntaxError: Unexpected token ;
+> db.EmployeeFeedbackForum.insert({name:"Sharvi",roll_no:6 ,branch:"Entc", feedback: "Robotics is the most interesting part" });
+
+WriteResult({ "nInserted" : 1 })
+> db.EmployeeFeedbackForum.find().pretty();
+{
+	"_id" : ObjectId("634cd4702b52f6713be18563"),
+	"name" : "Rohit",
+	"roll_no" : 5,
+	"branch" : "Electrical",
+	"feedback" : "perfect balance of software and hardware"
+}
+{
+	"_id" : ObjectId("634cd4a12b52f6713be18564"),
+	"name" : "Mansi",
+	"roll_no" : 4,
+	"branch" : "Entc",
+	"feedback" : "Exposure to Hardware related solution"
+}
+{
+	"_id" : ObjectId("634cd4a62b52f6713be18565"),
+	"name" : "Dhiraj",
+	"roll_no" : 3,
+	"branch" : "Entc",
+	"feedback" : "Hardware is quite difficult to deal with"
+}
+{
+	"_id" : ObjectId("634cd4ac2b52f6713be18566"),
+	"name" : "Vaibhav",
+	"roll_no" : 2,
+	"branch" : "Computer",
+	"feedback" : "Teacher Teaching staff is good"
+}
+{
+	"_id" : ObjectId("634cd82b2b52f6713be18567"),
+	"name" : "Sharvi",
+	"roll_no" : 6,
+	"branch" : "Entc",
+	"feedback" : "Robotics is the most interesting part"
+}
+> db.EmployeeFeedbackForum.aggregate([{$match:{branch:"Entc"}}])
+
+{ "_id" : ObjectId("634cd4a12b52f6713be18564"), "name" : "Mansi", "roll_no" : 4, "branch" : "Entc", "feedback" : "Exposure to Hardware related solution" }
+{ "_id" : ObjectId("634cd4a62b52f6713be18565"), "name" : "Dhiraj", "roll_no" : 3, "branch" : "Entc", "feedback" : "Hardware is quite difficult to deal with" }
+{ "_id" : ObjectId("634cd82b2b52f6713be18567"), "name" : "Sharvi", "roll_no" : 6, "branch" : "Entc", "feedback" : "Robotics is the most interesting part" }
+
+> db.EmployeeFeedbackForum.aggregate([{$match:{branch:"Entc"}}, {$group: {_id:"", totalCount:{$sum:"$roll_no"}}}])
+{ "_id" : "", "totalCount" : 13 }
+> db.EmployeeFeedbackForum.aggregate([{$match:{branch:"Entc"}}, {$group: {_id:"", totalCount:{$first:"$roll_no"}}}])
+{ "_id" : "", "totalCount" : 4 }
+> db.EmployeeFeedbackForum.aggregate([{$match:{branch:"Entc"}}, {$group: {_id:"", name:"", firstPerson:{$first:"$roll_no"}}}])
+assert: command failed: {
+	"errmsg" : "exception: the group aggregate field 'name' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: the group aggregate field 'name' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:244:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1149:12)
+    at (shell):1:26
+2022-10-17T10:03:07.445+0530 Error: command failed: {
+	"errmsg" : "exception: the group aggregate field 'name' must be defined as an expression inside an object",
+	"code" : 15951,
+	"ok" : 0
+} : aggregate failed at src/mongo/shell/assert.js:13
+> db.EmployeeFeedbackForum.aggregate([{$match:{branch:"Entc"}}, {$group: {_id:"", firstPerson:{$first:"$roll_no"}}}])
+{ "_id" : "", "firstPerson" : 4 }
+> db.EmployeeFeedbackForum.aggregate([{$match:{branch:"Comp"}}, {$group: {_id:"", firstPerson:{$first:"$roll_no"}}}])
+> 
+> db.EmployeeFeedbackForum.aggregate([{$match:{branch:"Computer"}}, {$group: {_id:"", firstPerson:{$first:"$roll_no"}}}])
+{ "_id" : "", "firstPerson" : 2 }
+> db.EmployeeFeedbackForum.aggregate([{$match:{branch:"Entc"}}, {$group: {_id:"", lastPerson:{$last:"$roll_no"}}}])
+{ "_id" : "", "lastPerson" : 6 }
+> db.EmployeeFeedbackForum.aggregate([{$match:{branch:"Entc"}}, {$group: {_id:"", Average:{$avg:"$roll_no"}}}])
+{ "_id" : "", "Average" : 4.333333333333333 }
+> db.EmployeeFeedbackForum.aggregate([ {$group: {_id:"", Average:{$avg:"$roll_no"}}}])
+{ "_id" : "", "Average" : 4 }
+> db.EmployeeFeedbackForum.aggregate([ {$group: {_id:"", Name:{$first:"name"}}}])
+{ "_id" : "", "Name" : "name" }
+> db.EmployeeFeedbackForum.aggregate([ {$group: {_id:"", Name:{$first:"$name"}}}])
+{ "_id" : "", "Name" : "Rohit" }
+> db.EmployeeFeedbackForum.aggregate([ {$group: {_id:"", Name:{$first:"$branch"}}}])
+{ "_id" : "", "Name" : "Electrical" }
+> db.EmployeeFeedbackForum.aggregate([ {$group: {_id:"", MinimumRoll:{$min:"$roll_no"}}}])
+{ "_id" : "", "MinimumRoll" : 2 }
+> db.EmployeeFeedbackForum.aggregate([ {$group: {_id:"", MaximumRoll:{$max:"$roll_no"}}}])
+{ "_id" : "", "MaximumRoll" : 6 }
+> db.EmployeeFeedbackForum.aggregate([ {$group: {_id:"", CountRoll:{$count:"$roll_no"}}}])
+assert: command failed: {
+	"errmsg" : "exception: unknown group operator '$count'",
+	"code" : 15952,
+	"ok" : 0
+} : aggregate failed
+Error: command failed: {
+	"errmsg" : "exception: unknown group operator '$count'",
+	"code" : 15952,
+	"ok" : 0
+} : aggregate failed
+    at Error (<anonymous>)
+    at doassert (src/mongo/shell/assert.js:11:14)
+    at Function.assert.commandWorked (src/mongo/shell/assert.js:244:5)
+    at DBCollection.aggregate (src/mongo/shell/collection.js:1149:12)
+    at (shell):1:26
+2022-10-17T10:07:59.810+0530 Error: command failed: {
+	"errmsg" : "exception: unknown group operator '$count'",
+	"code" : 15952,
+	"ok" : 0
+} : aggregate failed at src/mongo/shell/assert.js:13
