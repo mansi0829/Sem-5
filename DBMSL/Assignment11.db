@@ -1,0 +1,27 @@
+db.students.insertMany([
+  {  name: 'Ryan', gender: 'M', age: 20, marks: 80 },
+  {  name: 'Joanna', gender: 'F', age: 19, marks: 90 },
+  {  name: 'Abc', gender: 'M', age: 18, marks: 75 },
+  {  name: 'xyz', gender: 'F', age: 21, marks: 85 },
+  {  name: 'Lmn', gender: 'F', age: 19, marks: 45 },
+  {  name: 'Pqr', gender: 'F', age: 20, marks: 95 },
+]);
+db.students.find({ gender: 'F' });
+
+var mapFunction = function(){emit(this.gender, this.gender)}
+
+// var sumFunction = function(key, values){return Array.sum(values)}
+
+// var avgFunction = function(key, values){return Array.avg(values)}
+
+var countFunction = function(key, values){return Array.size(values)}
+
+// db.students.mapReduce(mapFunction, sumFunction, {'out': 'Result1_mapreduce'})
+
+// db.students.mapReduce(mapFunction, avgFunction, {query: {age : {$gt : 20}},'out': 'Result2_mapreduce'})
+
+db.students.mapReduce(mapFunction, countFunction, {query: {gender : {$eq : 'F'}},'out': 'Result3_mapreduce'})
+
+// db.Result1_mapreduce.find()
+// db.Result2_mapreduce.find()
+db.Result3_mapreduce.find()
