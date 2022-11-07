@@ -1,0 +1,46 @@
+package mongo_conn;
+
+import com.mongodb.MongoClientURI;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.MongoClient;
+import org.bson.Document;
+import static com.mongodb.client.model.Filters.eq;
+
+import java.util.Scanner;
+
+public class MongoConnect {
+
+      public static void main(String[] args) {
+            MongoClientURI uri = new MongoClientURI("mongodb://31307:31307@10.10.10.51/?authSource=31307");
+            MongoClient mongoClient = new MongoClient(uri);
+            mongoClient.startSession();
+            MongoDatabase database = mongoClient.getDatabase("31307");
+            System.out.println("Enter 1 to create collection");
+            System.out.println("Enter 2 to insert into collection");
+            System.out.println("Enter 3 to delete from collection");
+            System.out.println("Enter 4 to read collection");
+            System.out.println("Enter 5 to exit");
+            Scanner sc = new Scanner(System.in);
+            int choice = 0;
+            while (choice != 5) {
+                  choice = sc.nextInt();
+            }
+            if (choice == 1) {
+                  System.out.println("Enter name of collection:");
+                  String nameC = sc.next();
+                  database.createCollection(nameC);
+            } else if (choice == 2) {
+                  System.out.println("Enter name : ");
+                  String name = sc.next();
+                  System.out.println("Enter marks : ");
+                  int marks = sc.nextInt();
+                  
+            }
+            MongoCollection<Document> collection = database.getCollection("orders");
+            Document doc = collection.find(eq("cust_id", "Ant O. Knee")).first();
+        System.out.println(doc.toJson());
+            mongoClient.close();
+            sc.close();
+      }
+}
